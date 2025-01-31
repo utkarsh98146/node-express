@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home:Crud App</title>
+  </head>
+
+  <body>
+    <h1>To view all items</h1>
+    <button><a href="/add"> Add Items</a></button>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      <% items.forEach(item=>{ %>
+      <tr>
+        <td><%= item.name%></td>
+        <td><%= item.quantity%></td>
+        <td><%= item.price%></td>
+        <td>
+          <form action="/edit/<%= item._id %>" method="get">
+            <button type="submit">Edit</button>
+          </form>
+          <form action="/delete/<%= item._id%>" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
