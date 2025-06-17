@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Url Shortner</h1>
+      <!-- <form action="" id="shorten-form">  -->
+      <form action="/" method="post"> 
+        <div>
+          <label for="url"> Enter the Url</label>
+          <input type="text" name="url" id="url" required />
+        </div>
+        <div>
+          <label for="shortCode"> Enter the Short Code</label>
+          <input type="text" name="shortCode" id="shortCode" required />
+        </div>
+        <button type="submit">Shorten</button>
+     
+       <h2>Shortened Urls</h2>
+      <!-- <ul id="shortened-urls"></ul> -->
+      <ul >
+
+
+        <!-- {{shortened-urls}} -->
+
+        <!-- const content = file.toString().replaceAll(
+            "{{shortened-urls}}",
+            Object.entries(links)
+              .map(
+                ([shortCode, url]) =>{
+                    url=url.length>30 ? `${url.slice(0,30)}...`:url
+                  return `<li><a href="/${shortCode}" target="_blank">${req.hostname}/${shortCode}</a> - ${url}</li>`
+                })
+              .join("")
+          );
+          return res.send(content); -->
+
+          <!-- Object.entries(links)
+            .map(
+              ([shortCode, url]) =>{
+                  url=url.length>30 ? `${url.slice(0,30)}...`:url
+                return `<li><a href="/${shortCode}" target="_blank">${req.hostname}/${shortCode}</a> - ${url}</li>`
+              })
+           .join("") -->
+           <% links.forEach(({ shortCode, url }) => { %>
+            <% const truncatedUrl = url.length > 30 ? `${url.slice(0, 30)}...` : url; %>
+            <li>
+              <a href="/<%= shortCode %>" target="_blank">
+                <%= host %>/<%= shortCode %>
+              </a> - <%= truncatedUrl %>
+            </li>
+          <% }); %>
+
+      </ul>
+    
+    </div>
+    <!-- <script>
+
+      // const fetchShortendURL=async()=>{
+      //   const response=await fetch("/links")
+      //   const links= await response.json()
+      //   console.log("links : ",links)
+
+      //   const list =document.getElementById("shortened-urls")
+      //   list.innerHTML=""
+
+      //   for(const [shortCode,url] of Object.entries(links)){
+      //     const li=document.createElement('li')
+      //     const truncatedURL=url.length>=30 ? `${url.slice(0,30)}...`:url
+      //     li.innerHTML=`<a href="/${shortCode}" target="_blank" >${window.location.origin}/${shortCode}</a> - <br> ${truncatedURL}`
+      
+      //    list.appendChild(li)
+      //   }
+      
+      
+      // }
+
+
+      // document
+      // .getElementById("shorten-form")
+      //   .addEventListener("submit", async(event) => {
+      //     event.preventDefault();
+
+      //     const formData = new FormData(event.target);
+
+      //     const url = formData.get("url");
+      //     const shortCode = formData.get("shortCode");
+      //     console.log(url, shortCode);
+
+      //     try {
+      //       const response=await fetch("/shorten",{
+      //         method : "POST",
+      //         header:{"Content-Type":"application/json"},
+      //         body:JSON.stringify({url,shortCode})
+      //       })
+      //       if(response.ok){
+      //         fetchShortendURL()
+      //         alert("Form submitted successfully...")
+      //         event.target.reset()
+      //       }
+      //       else{
+      //         const errorMessage=await response.text()
+      //         alert(errorMessage)
+      //       }
+      //     } catch (error) {
+      //       console.log(error)
+      //     }
+      //   });
+      //   fetchShortendURL()
+    </script> -->
+   
+  </body>
+</html>

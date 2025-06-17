@@ -1,0 +1,14 @@
+.navbar{    
+    color: aqua;
+}
+
+.navbar ul{ margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    list-style: none;
+}
+body{
+    background-color: antiquewhite;
+}

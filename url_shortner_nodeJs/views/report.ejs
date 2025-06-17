@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report file</title>
+</head>
+<body>
+    <%- include('header') %>
+    <h1>report file</h1>
+    <!-- <p>
+        <% for(let i=0;i<student.length;i++) {%>
+
+            <h3>Name : <%=student[i].name%></h3>
+            <h3>Grade : <%=student[i].grade%></h3>
+            <h3>Favorite Subject : <%=student[i].favoriteSubject %></h3>
+      <%  }%>
+    </p> -->
+      <ul>
+                <% for(let i=0;i<student.length;i++) {%>
+        <li>
+            <p>Name : <%=student[i].name%></p>
+            <p>Grade :<%=student[i].grade%></p>
+            <p>Favorite Subject : <%=student[i].favoriteSubject%></p>
+        </li>
+        <%  }%>
+      </ul>
+</body>
+</html>
